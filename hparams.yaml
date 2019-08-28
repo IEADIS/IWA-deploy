@@ -1,0 +1,12 @@
+relevant.files:
+  grades : Data/notas.csv
+
+models.dir:
+  regression : Data/Models/
+  classification : Data/Models/
+  absolute : Data/Models/
+
+plots.dir:
+  regression : Analisis/Plots//Models/
+  classification : Analisis/Plots//Models/
+  absolute : Analisis/Plots//Models/
