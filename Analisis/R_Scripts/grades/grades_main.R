@@ -18,6 +18,18 @@ getwd()
 paste('Loading Grades:',NOTES)
 data.grades <- read.csv(NOTES, header = TRUE)
 
+# IGNORE LAB ASIGNATURES
+if (LABS_IGNORE) {
+  data.grades <- labs.omit(data.grades)
+}
+# HOMOLOGATE DATA IF NECESSARY
+if (CUR_NECS) {
+  data.grades <- subjects.homolog(data.grades)
+}
+
+# REMOVE UNECESSARY SPACES ON SUBJECTS CODS
+data.grades <- spaceSubject.filt(data.grades)
+
 # subjects.consider <- unique(data.grades[data.grades$Area.Asignatura %in% c('SISTEMAS'),]$Codigo.Asignatura)
 subjects.consider <- unique(data.grades[data.grades$Programa.Estudiante %in% c('INGENIERIA DE SISTEMAS') ,]$Codigo.Asignatura)
 subjects.consider <- subjects.consider[!laply( subjects.consider, function(val){ return( grepl("\\(", val) || grepl("\\)", val) ) } ) ]

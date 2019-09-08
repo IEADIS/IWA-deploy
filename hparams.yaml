@@ -1,5 +1,8 @@
 relevant.files:
-  grades : Data/notas.csv
+  grades : Data/notas_2009-2019.csv
+  ignorelab: TRUE
+  currnecessity : TRUE
+  currupdate: Data/curriculum_update.csv
 
 models.dir:
   regression : Data/Models/
